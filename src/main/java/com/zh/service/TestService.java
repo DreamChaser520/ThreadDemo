@@ -40,14 +40,14 @@ public class TestService {
         return resultMap;
     }
 
-    public static Map<String, String> multiThreadTest() {
+    public static Map<String, String> multiThreadTest(String n) {
         AsyncService service = new AsyncService();
         MyThreadExecutor myThreadExecutor = new MyThreadExecutor();
         Future<String> f1 = myThreadExecutor.submit(service::testMethod1);
         Future<String> f2 = myThreadExecutor.submit(service::testMethod2);
         Future<String> f3 = myThreadExecutor.submit(service::testMethod3);
         Future<String> f4 = myThreadExecutor.submit(service::testMethod4);
-        Future<String> f5 = myThreadExecutor.submit(() -> service.testMethod5("n"));
+        Future<String> f5 = myThreadExecutor.submit(() -> service.testMethod5(n));
         HashMap<String, String> resultMap = new HashMap<>();
 
         long start = System.currentTimeMillis();

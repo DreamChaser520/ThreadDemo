@@ -2,6 +2,7 @@ package com.zh.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
@@ -36,7 +37,7 @@ public class TestController {
 
     @RequestMapping("/multiThread")
     @ResponseBody
-    public Map<String, String> multiThread() {
-        return multiThreadTest();
+    public Map<String, String> multiThread(@RequestParam String n) {
+        return multiThreadTest(n);
     }
 }
